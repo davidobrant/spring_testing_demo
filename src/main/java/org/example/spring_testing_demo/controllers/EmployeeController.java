@@ -29,6 +29,11 @@ public class EmployeeController {
         return service.createEmployee(employee);
     }
 
+    @PostMapping("/seed")
+    public Iterable<Employee> seedEmployees() {
+        return service.seedEmployees();
+    }
+
     @PutMapping("/{id}")
     public Employee updateEmployeeById(@PathVariable Long id, @RequestBody Employee employee) {
         return service.updateEmployeeById(id, employee);
@@ -37,6 +42,11 @@ public class EmployeeController {
     @DeleteMapping("/{id}")
     public boolean deleteEmployeeById(@PathVariable Long id) {
         return service.deleteEmployeeById(id);
+    }
+
+    @DeleteMapping("/all")
+    public boolean deleteEmployees() {
+        return service.deleteEmployees();
     }
 
 }
